@@ -6,6 +6,7 @@
 
     <link rel="stylesheet" type="text/css" href="./semantic/dist/semantic.min.css"/>
     <link rel="stylesheet" type="text/css" href="./styles/index.css">
+    <script src="src/makecrawl.js"></script>
 </head>
 <body>
     <div class="ui grid">
@@ -24,23 +25,26 @@
                         <i class="search icon"></i>
                     </div>
                 </div>
+                <div id="pubOne">
+                    THIS IS A PUB
+                    <button onclick="addPub(this)"><i class="plus square outline icon"></i></button>
+                </div>
+                <div id="pubTwo">
+                    Pub 2
+                    <button onclick="addPub(this)"><i class="plus square outline icon"></i></button>
+                </div>
+                <div id="pubThree">
+                    Pub 3
+                    <button onclick="addPub(this)"><i class="plus square outline icon"></i></button>
+                </div>
             </div>
+
 
             <div class="column" style="border-left:solid">
                 <div class="ui huge input">
                     <input type="text" placeholder="Title">
                 </div>
-                <div>
-                    <button><i class="angle up icon"></i></button>
-                    <button><i class="angle down icon"></i></button>
-                    Pub 1
-                </div>
-                <div>
-                    <button><i class="angle up icon"></i></button>
-                    <button><i class="angle down icon"></i></button>
-                    Pub 2
-                </div>
-                <br/><br/><button class="right floated ui primary button">Save</button>
+                <div id="list"></div>
             </div>
         </div>
 
