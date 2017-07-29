@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>View a Pub Crawl</title>
+
+    <link rel="stylesheet" type="text/css" href="./semantic/dist/semantic.min.css"/>
+    <link rel="stylesheet" type="text/css" href="./styles/index.css">
+    <script src="src/viewcrawl.js"></script>
+</head>
+<body>
+
+<div class="ui grid">
+    <div class="four wide column header-bar"><a href="index.html"><img src="img/smol_logo.png" style="width:70%"></a></div>
+    <div class="four wide column header-bar middle aligned content">Popular Crawls</div>
+    <div class="four wide column header-bar middle aligned content">Nearby Crawls</div>
+    <div class="four wide column header-bar middle aligned content">Login|Register</div>
+
+
+
+
+        <div class="seven wide column">
+            <div class="ui huge header" style="font-size:32pt">Harry's Awesome Crawl!</div>
+            <div>
+                By Harry Meskell
+                <i class="large star icon"></i>
+                <i class="large star icon"></i>
+                <i class="large star icon"></i>
+                <i class="large star half empty icon"></i>
+                <i class="large empty star icon"></i>
+            </div>
+            <br/><br/>
+            <div class="ui grid" id="pub1" onclick="crawlSelect(this)" style="border:solid">
+                <div class="six wide column">
+                    <div class="row ui medium header">Red Love</div>
+                    <div class="row">123 Something Street</div>
+                    <div class="row">Phone: 03 9123 4567</div>
+                </div>
+                <div class="six wide column">
+                    <div class="row ui medium header"><br/></div>
+                    <div class="row">Rating: 4/5</div>
+                    <div class="row">Capacity: 100</div>
+                </div>
+                <div class="four column">
+                    <img src="img/placeholder.png" style="width:100px"/>
+                </div>
+            </div>
+            <br/><br/><br/>
+            <div class="ui grid" id="pub2" onclick="crawlSelect(this)" style="border:solid">
+                <div class="six wide column">
+                    <div class="row ui medium header">Rubira's</div>
+                    <div class="row">90 Ingles Street</div>
+                    <div class="row">Phone: 03 9123 4567</div>
+                </div>
+                <div class="six wide column">
+                    <div class="row ui medium header"><br/></div>
+                    <div class="row">Rating: 4/5</div>
+                    <div class="row">Capacity: 100</div>
+                </div>
+                <div class="four column">
+                    <img src="img/rubira.png" style="width:100px"/>
+                </div>
+            </div>
+        </div>
+        <div class="seven wide column" style="border:solid;background-color: darkgray">
+            <div class="ui grid" id="">
+                <div class="eight wide column" style="background-color: grey">
+                    <img src="img/placeholder.png" class="ui centered image" style="height:250px"/>
+                </div>
+                <div class="eight wide column" style="background-color: grey">
+                    <img src="img/placeholder.png" class="ui centered image" style="height:250px"/>
+                </div>
+                <div class="sixteen wide column center aligned content" style="border-bottom:solid">
+                    <span class="ui huge header">Red Love</span>
+                    <i class="large star icon"></i>
+                    <i class="large star icon"></i>
+                    <i class="large star icon"></i>
+                    <i class="large star icon"></i>
+                    <i class="large star icon"></i>
+                </div>
+                <div class="eight wide column">
+                    123 What Street<br/>
+                    Hours: Whenever man<br/>
+                    Phone: 0334567890<br/>
+                    Menu: Redlove.com.au<br/>
+                    Crime Index Rating: 0%<br/>
+                </div>
+                <div class="eight wide column">
+                    Website or something
+                </div>
+                <div class="sixteen wide column">
+                    Redlove has a description which is here and this is the description and it's very descriptive
+                </div>
+            </div>
+        </div>
+</div>
+
+</body>
+</html>
