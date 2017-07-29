@@ -1,0 +1,36 @@
+p,span {
+    font-family: 'Roboto', 'sans-serif';
+}
+
+.header img {
+    width: 13.5em !important;
+}
+
+.quote {
+    text-align: center;
+    padding-top: 100px;
+}
+
+html {
+    height:100%;
+}
+body {
+    min-height:100%;
+}
+
+.pub img {
+    width: 32px;
+}
+
+.buildCrawlBuilder .content .pub-select-buttons, .buildCrawlBuilder .content .header {
+    display: inline-block !important;
+}
+
+.buildCrawlBuilder .content .header {
+    margin-right: 7px !important;
+}
+
+.pubcrawlField {
+    margin-top: 7px;
+    margin-bottom: 7px;
+}
