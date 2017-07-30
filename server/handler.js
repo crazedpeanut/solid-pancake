@@ -44,7 +44,7 @@ module.exports.pubcrawls = (event, context, callback) => {
                 'Content-Type': 'application/json',
                 'Access-Control-Allow-Origin' : '*'
             },
-        }
+        };
 
         console.log(res)
 
