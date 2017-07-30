@@ -1,3 +1,5 @@
+const _ = require('lodash');
+
 const initialState = {
     pubCrawls: [],
     pubCrawlDisplay: []
@@ -12,9 +14,8 @@ export default function todoApp(state, action) {
 
     if(action.type === 'REFRESH_PUBCRAWLS') {
         console.log('Got REFRESH_PUBCRAWLS action ');
-        const newState = Object.assign(state, {
-            pubCrawls: action.pubCrawls
-        });
+        const newState = _.cloneDeep(state);
+        newState.pubCrawls = action.pubCrawls;
 
         console.log(`Old state: ${JSON.stringify(state)}`);
         console.log(`newstate state: ${JSON.stringify(newState)}`);
@@ -24,9 +25,9 @@ export default function todoApp(state, action) {
 
     if(action.type === 'REFRESH_PUBCRAWL') {
         console.log('Got REFRESH_PUBCRAWL action ');
-        const newState = Object.assign(state, {
-            pubCrawlDisplay: action.pubCrawl
-        });
+
+        const newState = _.cloneDeep(state);
+        newState.pubCrawlDisplay = action.pubCrawl;
 
         console.log(`Old state: ${JSON.stringify(state)}`);
         console.log(`newstate state: ${JSON.stringify(newState)}`);
