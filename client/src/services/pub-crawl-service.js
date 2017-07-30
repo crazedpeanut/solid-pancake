@@ -23,6 +23,8 @@ function getAllPubs() {
 
 function submitPubCrawl(pubCrawl) {
 
+    console.log(`post pub crawl ${JSON.stringify(pubCrawl, null, 2)}`);
+
     return axios({
         method: 'post',
         url: config.pubCrawlsUrl,
