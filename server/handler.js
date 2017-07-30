@@ -46,7 +46,7 @@ module.exports.pubcrawls = (event, context, callback) => {
                 'Access-Control-Allow-Origin' : '*',
                 'Access-Control-Allow-Headers': 'Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With'
             },
-        }
+        };
 
         console.log(response)
 

@@ -39,7 +39,7 @@ class PubCrawlBuilder extends React.Component {
 
         const pubCrawl = this.buildPubCrawl();
 
-        pubCrawlService.submitPubCrawl()
+        pubCrawlService.submitPubCrawl(pubCrawl)
             .then(() => {
                 this.setState({
                     isSubmitting: false,
