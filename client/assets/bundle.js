@@ -54689,7 +54689,8 @@ var PubCrawlBuilder = function (_React$Component) {
 
         _this.state = {
             pubs: [],
-            isSubmitting: false
+            isSubmitting: false,
+            pubCrawlUrl: null
         };
         return _this;
     }
@@ -54712,8 +54713,11 @@ var PubCrawlBuilder = function (_React$Component) {
 
             _pubCrawlService2.default.submitPubCrawl(pubCrawl).then(function () {
                 _this2.setState({
-                    isSubmitting: false
+                    isSubmitting: false,
+                    pubCrawlUrl: '/pubCrawl?id=' + pubCrawl.PubCrawlName
                 });
+
+                console.log('Sending user to pubCrawl');
 
                 console.log('pub crawl submit Success!');
             }).catch(function (err) {
@@ -54792,7 +54796,8 @@ var PubCrawlBuilder = function (_React$Component) {
         value: function resetState() {
             this.setState({
                 pubs: [],
-                isSubmitting: false
+                isSubmitting: false,
+                pubCrawlUrl: null
             });
         }
     }, {
@@ -54826,6 +54831,11 @@ var PubCrawlBuilder = function (_React$Component) {
                 React.createElement(
                     'div',
                     { className: 'ui eight wide column' },
+                    React.createElement(
+                        'div',
+                        { className: this.state.pubCrawlUrl ? '' : this.state.pubCrawlUrl },
+                        this.state.pubCrawlUrl
+                    ),
                     React.createElement(_pubSearch2.default, { onSelected: this.handlePubSelected }),
                     React.createElement(_pubSelector2.default, { pubs: this.state.pubs, onDelete: this.handlePubDeleted, onUp: this.handlePubUp, onDown: this.handlePubDown }),
                     React.createElement(

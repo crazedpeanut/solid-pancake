@@ -5,6 +5,8 @@ import _ from 'lodash';
 import {Button} from 'semantic-ui-react';
 import classNames from 'classnames';
 import pubCrawlService from '../services/pub-crawl-service';
+import PubCrawlComponent from './pub-crawl-component';
+import {Link} from 'react-router-dom';
 
 class PubCrawlBuilder extends React.Component {
 
@@ -20,7 +22,9 @@ class PubCrawlBuilder extends React.Component {
 
         this.state = {
             pubs: [],
-            isSubmitting: false
+            isSubmitting: false,
+            pubCrawlUrl: null,
+            pubCrawl: null,
         };
     }
 
@@ -38,8 +42,12 @@ class PubCrawlBuilder extends React.Component {
         pubCrawlService.submitPubCrawl(pubCrawl)
             .then(() => {
                 this.setState({
-                    isSubmitting: false
+                    isSubmitting: false,
+                    pubCrawlUrl: `/pubCrawl?id=${pubCrawl.PubCrawlName}`,
+                    pubCrawl
                 });
+
+                console.log('Sending user to pubCrawl');
 
                 console.log('pub crawl submit Success!');
             })
@@ -111,8 +119,10 @@ class PubCrawlBuilder extends React.Component {
 
     resetState() {
         this.setState({
-           pubs: [],
-            isSubmitting: false
+            pubs: [],
+            isSubmitting: false,
+            pubCrawlUrl: null,
+            pubCrawl: null,
         });
     }
 
@@ -141,9 +151,34 @@ class PubCrawlBuilder extends React.Component {
             }
         );
 
+        const successMessageClasses = classNames(
+            'ui',
+            'positive',
+            'message',
+            {
+                'hidden': !this.state.pubCrawlUrl,
+            }
+        );
+
         return (
             <div className="ui grid centered container buildCrawlBuilder">
                 <div className="ui eight wide column">
+                    <div className={successMessageClasses}>
+                        <i className="close icon"/>
+                        <div className="header">
+                            You created a Pub Crawl
+                        </div>
+                        <p>
+                            {
+                                this.state.pubCrawlUrl ? <Link to={this.state.pubCrawlUrl}>Take me there!</Link> : ''
+                            }
+                        </p>
+                            {
+                                <div className="ui items">
+                                    {this.state.pubCrawl ? <PubCrawlComponent pubCrawl={this.state.pubCrawl}/> : 'no pub crawl'}
+                                </div>
+                            }
+                    </div>
                     <PubSearch onSelected={this.handlePubSelected}/>
                     <PubSelector pubs={this.state.pubs} onDelete={this.handlePubDeleted} onUp={this.handlePubUp} onDown={this.handlePubDown}/>
                     <div className="pubcrawlField">
