@@ -35,14 +35,21 @@ module.exports.pubs = (event, context, callback) => {
 module.exports.pubcrawls = (event, context, callback) => {
     //console.log('Received event:', JSON.stringify(event, null, 2));
 
-    const done = (err, res) => callback(null, {
-        statusCode: err ? '400' : '200',
-        body: err ? err.message : JSON.stringify(res),
-        headers: {
-            'Content-Type': 'application/json',
-            'Access-Control-Allow-Origin' : '*'
-        },
-    });
+    const done = (err, res) => {
+
+        const res = {
+            statusCode: err ? '400' : '200',
+            body: err ? err.message : JSON.stringify(res),
+            headers: {
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin' : '*'
+            },
+        }
+
+        console.log(res)
+
+        callback(null,res);
+    }
 
     switch (event.httpMethod) {
         case 'DELETE':
@@ -68,7 +75,13 @@ module.exports.pubcrawls = (event, context, callback) => {
 
             break;
         case 'POST':
-            var post_data = JSON.parse(event.body);
+            let post_data;
+
+            try {
+                post_data = JSON.parse(event.body);
+            } catch(err) {
+                done(err);
+            }
 
             var params = {
                 TableName: 'pubcrawls',
