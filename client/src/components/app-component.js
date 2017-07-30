@@ -3,7 +3,7 @@ import {Route, Link, Redirect} from 'react-router-dom'
 import Dashboard from '../containers/dashboard-container';
 import CrawlBuilder from '../components/pub-crawl-builder';
 import PubCrawl from '../containers/pub-crawl-container';
-//import PubCrawlSearch from '../containers/pub-crawl-search-container';
+import PubCrawlSearch from '../containers/pub-crawl-search-container';
 const pubCrawlService = require('../services/pub-crawl-service');
 
 class AppComponent extends React.Component {
@@ -29,7 +29,7 @@ class AppComponent extends React.Component {
                         Build a Crawl
                     </Link>
                     <div className="header item">
-                       {/* <PubCrawlSearch/>*/}
+                        <PubCrawlSearch/>
                     </div>
                 </div>
 

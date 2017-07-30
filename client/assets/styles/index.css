@@ -35,11 +35,8 @@ body {
     margin-bottom: 7px;
 }
 
-
-
-#map {
-    width: 500px;
-    height: 400px;
+.pubmap {
+    height: 500px;
 }
 
 .reviews {

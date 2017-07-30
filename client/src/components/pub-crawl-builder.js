@@ -64,7 +64,9 @@ class PubCrawlBuilder extends React.Component {
             PubID: pub.PubID,
             Area: pub.Area,
             StreetAddress: pub.StreetAddress,
-            NumberOfPatrons: pub.NumberOfPatrons
+            NumberOfPatrons: pub.NumberOfPatrons,
+            Xcoordinate: pub.Xcoordinate,
+            Ycoordinate: pub.Ycoordinate
         }));
 
         for(let i = 0; i < pubs.length; i++) {

@@ -3,25 +3,23 @@ const React = require('react');
 let map, service;
 
 function initMap(pub) {
-    const central_park = new google.maps.LatLng(40.764243, -73.973049);
     console.log('pub: '+pub.PubID);
-    console.log(central_park);
-    console.log(getPubDivID(pub.PubID));
-    console.log(document.getElementById(getPubDivID(pub.PubID)));
+    console.log(getPubDivID('map' + pub.PubID));
+    console.log(document.getElementById(getPubDivID('map' + pub.PubID)));
 
-    map = new google.maps.Map(document.getElementById(getPubDivID(pub.PubID)), {
-        center: central_park,
+    map = new google.maps.Map(document.getElementById(getPubDivID('map' + pub.PubID)), {
+        center: {lng: pub.Xcoordinate, lat: pub.Ycoordinate},
         zoom: 15
     });
 
     const request = {
-        location: central_park,
+        location: {lng: pub.Xcoordinate, lat: pub.Ycoordinate},
         radius: "500",
         types: ["food"]
     };
 
-    //service = new google.maps.places.PlacesService(map);
-    //service.nearbySearch(request, searchResult);
+    service = new google.maps.places.PlacesService(map);
+    service.nearbySearch(request, searchResult);
 }
 
 function searchResult(results, status) {
@@ -95,20 +93,27 @@ class PubCrawlPubComponent extends React.Component {
                     <div className="eight wide column">
                         <img className="ui image" src={getPubImg(this.props.pub.ItemName)} width="75px"/>
                     </div>
-                    <div className="reviews"><ul className="review-list"></ul></div>
-                    <div id="map"> </div>
                     <hr/>
                     <div><strong>Overall rating:</strong> <span id="rating"> </span></div>
                     </div>
-
-                <div className="reviews"><ul className="review-list"></ul></div>
-                <div id="map"></div>
+                    <div className="ui row">
+                        <div className="ui eight wide column">
+                            <div><strong>Overall rating:</strong> <span id="rating"></span></div>
+                            <div className="reviews"><ul className="review-list"></ul></div>
+                            <div className="reviews"><ul className="review-list"></ul></div>
+                        </div>
+                        <div className="ui eight wide column">
+                            <div className="pubmap" id={getPubDivID('map' + this.props.pub.PubID)}/>
+                        </div>
+                    </div>
                 <hr/>
-                <div><strong>Overall rating:</strong> <span id="rating"></span></div>
-                {initMap(this.props.pub)}
             </div>
         
         );
+    }
+
+    componentDidMount() {
+        initMap(this.props.pub)
     }
 }
 
