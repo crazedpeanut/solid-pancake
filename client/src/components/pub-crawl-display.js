@@ -22,8 +22,7 @@ class PubCrawlDisplay extends React.Component {
 
 
     render() {
-        console.dir(this.props);
-
+        console.log(this.props);
 
         return (
             <div>
