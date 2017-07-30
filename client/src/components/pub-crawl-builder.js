@@ -39,7 +39,7 @@ class PubCrawlBuilder extends React.Component {
 
         const pubCrawl = this.buildPubCrawl();
 
-        pubCrawlService.submitPubCrawl(pubCrawl)
+        pubCrawlService.submitPubCrawl()
             .then(() => {
                 this.setState({
                     isSubmitting: false,
@@ -50,6 +50,8 @@ class PubCrawlBuilder extends React.Component {
                 console.log('Sending user to pubCrawl');
 
                 console.log('pub crawl submit Success!');
+
+                console.log(JSON.stringify(pubCrawl));
             })
             .catch(err => {
                 console.log(err);
@@ -61,6 +63,7 @@ class PubCrawlBuilder extends React.Component {
             ItemName: pub.TradingName,
             PubID: pub.PubID,
             Area: pub.Area,
+            StreetAddress: pub.StreetAddress,
             NumberOfPatrons: pub.NumberOfPatrons
         }));
 

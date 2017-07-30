@@ -22,10 +22,12 @@ function getAllPubs() {
 }
 
 function submitPubCrawl(pubCrawl) {
-    return axios.post(config.pubCrawlsUrl, pubCrawl)
-        .then((res) => {
-            return res.data.Items;
-        })
+
+    return axios({
+        method: 'post',
+        url: config.pubCrawlsUrl,
+        data: pubCrawl
+    })
         .catch(err => console.error);
 }
 
