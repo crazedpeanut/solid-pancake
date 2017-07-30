@@ -32,7 +32,7 @@ function submitPubCrawl(pubCrawl) {
 
 function getPubCrawl(name=null) {
 
-    return axios.get(config.pubsUrl, {
+    return axios.get(config.pubCrawlsUrl, {
         params: {
             name: name
         }})

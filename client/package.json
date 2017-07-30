@@ -34,6 +34,7 @@
     "redux": "^3.7.2",
     "semantic-ui": "^2.2.11",
     "semantic-ui-react": "^0.71.2",
-    "webpack-dev-server": "^2.6.1"
+    "webpack-dev-server": "^2.6.1",
+    "query-string": "^5.0.0"
   }
 }
