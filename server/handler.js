@@ -15,7 +15,8 @@ module.exports.pubs = (event, context, callback) => {
         body: err ? err.message : JSON.stringify(res),
         headers: {
             'Content-Type': 'application/json',
-            'Access-Control-Allow-Origin' : '*'
+            'Access-Control-Allow-Origin' : '*',
+            'Access-Control-Allow-Headers': 'Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With'
         },
     });
 
@@ -42,7 +43,8 @@ module.exports.pubcrawls = (event, context, callback) => {
             body: err ? err.message : JSON.stringify(res),
             headers: {
                 'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin' : '*'
+                'Access-Control-Allow-Origin' : '*',
+                'Access-Control-Allow-Headers': 'Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With'
             },
         };
 
@@ -92,6 +94,9 @@ module.exports.pubcrawls = (event, context, callback) => {
             break;
         case 'PUT':
             dynamo.updateItem(JSON.parse(event.body), done);
+            break;
+        case 'OPTIONS':
+            done();
             break;
         default:
             done(new Error(`Unsupported method "${event.httpMethod}"`));

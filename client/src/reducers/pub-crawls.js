@@ -1,6 +1,6 @@
 const initialState = {
     pubCrawls: [],
-    PubCrawlDisplay: []
+    pubCrawlDisplay: []
 };
 
 export default function todoApp(state, action) {
@@ -25,7 +25,7 @@ export default function todoApp(state, action) {
     if(action.type === 'REFRESH_PUBCRAWL') {
         console.log('Got REFRESH_PUBCRAWL action ');
         const newState = Object.assign(state, {
-            PubCrawlDisplay: action.PubCrawlDisplay
+            pubCrawlDisplay: action.pubCrawlDisplay
         });
 
         console.log(`Old state: ${JSON.stringify(state)}`);

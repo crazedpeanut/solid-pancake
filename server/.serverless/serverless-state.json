@@ -146,7 +146,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/mypubcrawl/dev/1501381253706-2017-07-30T02:20:53.706Z/mypubcrawl.zip"
+                "S3Key": "serverless/mypubcrawl/dev/1501382190414-2017-07-30T02:36:30.414Z/mypubcrawl.zip"
               },
               "FunctionName": "mypubcrawl-dev-pubs",
               "Handler": "handler.pubs",
@@ -165,14 +165,14 @@
               "IamRoleLambdaExecution"
             ]
           },
-          "PubsLambdaVersionKcIqZ2MJArCMMICkJa2asqkIYn400udjv2QGZmMU": {
+          "PubsLambdaVersionIKD5ZFchMuhdMzF9MrbYFSur3f33sjM3A8m7gCtas": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "PubsLambdaFunction"
               },
-              "CodeSha256": "Kc+IqZ2MJArCMMICkJa2asq/kIYn40/0udjv2QGZmMU="
+              "CodeSha256": "IKD5ZFchMuh/dMzF9+MrbYFSur3f33sjM3A8m7gCtas="
             }
           },
           "PubcrawlsLambdaFunction": {
@@ -182,7 +182,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/mypubcrawl/dev/1501381253706-2017-07-30T02:20:53.706Z/mypubcrawl.zip"
+                "S3Key": "serverless/mypubcrawl/dev/1501382190414-2017-07-30T02:36:30.414Z/mypubcrawl.zip"
               },
               "FunctionName": "mypubcrawl-dev-pubcrawls",
               "Handler": "handler.pubcrawls",
@@ -201,14 +201,14 @@
               "IamRoleLambdaExecution"
             ]
           },
-          "PubcrawlsLambdaVersionKcIqZ2MJArCMMICkJa2asqkIYn400udjv2QGZmMU": {
+          "PubcrawlsLambdaVersionIKD5ZFchMuhdMzF9MrbYFSur3f33sjM3A8m7gCtas": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "PubcrawlsLambdaFunction"
               },
-              "CodeSha256": "Kc+IqZ2MJArCMMICkJa2asq/kIYn40/0udjv2QGZmMU="
+              "CodeSha256": "IKD5ZFchMuh/dMzF9+MrbYFSur3f33sjM3A8m7gCtas="
             }
           },
           "ApiGatewayRestApi": {
@@ -323,7 +323,7 @@
               "MethodResponses": []
             }
           },
-          "ApiGatewayDeployment1501381253725": {
+          "ApiGatewayDeployment1501382190428": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -412,13 +412,13 @@
           "PubsLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "PubsLambdaVersionKcIqZ2MJArCMMICkJa2asqkIYn400udjv2QGZmMU"
+              "Ref": "PubsLambdaVersionIKD5ZFchMuhdMzF9MrbYFSur3f33sjM3A8m7gCtas"
             }
           },
           "PubcrawlsLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "PubcrawlsLambdaVersionKcIqZ2MJArCMMICkJa2asqkIYn400udjv2QGZmMU"
+              "Ref": "PubcrawlsLambdaVersionIKD5ZFchMuhdMzF9MrbYFSur3f33sjM3A8m7gCtas"
             }
           },
           "ServiceEndpoint": {
@@ -491,7 +491,7 @@
     "artifact": "/Users/shaun/WebstormProjects/solid-pancake/server/.serverless/mypubcrawl.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/mypubcrawl/dev/1501381253706-2017-07-30T02:20:53.706Z",
+    "artifactDirectoryName": "serverless/mypubcrawl/dev/1501382190414-2017-07-30T02:36:30.414Z",
     "artifact": "mypubcrawl.zip"
   }
 }
