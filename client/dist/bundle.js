@@ -53378,7 +53378,7 @@ var AppComponent = function (_React$Component) {
         value: function render() {
             return _react2.default.createElement(
                 'div',
-                { id: 'game' },
+                { id: 'solid-pancake' },
                 _react2.default.createElement(
                     'div',
                     { className: 'ui menu' },
@@ -53387,7 +53387,7 @@ var AppComponent = function (_React$Component) {
                         { className: 'header item' },
                         _react2.default.createElement(
                             _reactRouterDom.Link,
-                            { to: '/dashboard' },
+                            { to: '/' },
                             _react2.default.createElement('img', { width: '100%', src: '/assets/img/Pubcrawlersmollogo.png' })
                         )
                     ),
@@ -53407,8 +53407,7 @@ var AppComponent = function (_React$Component) {
                         'Login/Register'
                     )
                 ),
-                _react2.default.createElement(_reactRouterDom.Redirect, { from: '/', to: '/dashboard' }),
-                _react2.default.createElement(_reactRouterDom.Route, { path: '/dashboard', component: _dashboardContainer2.default }),
+                _react2.default.createElement(_reactRouterDom.Route, { path: '/', component: _dashboardContainer2.default }),
                 _react2.default.createElement(_reactRouterDom.Route, { path: '/pubCrawl', component: _pubCrawlDisplay2.default }),
                 _react2.default.createElement(_reactRouterDom.Route, { path: '/crawlBuilder', component: _pubCrawlBuilder2.default })
             );
@@ -53470,8 +53469,6 @@ exports.default = DashboardContainer;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _reactRouterDom = __webpack_require__(148);
-
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -53482,14 +53479,9 @@ var React = __webpack_require__(1);
 var PubCrawl = __webpack_require__(540);
 var pubCrawlService = __webpack_require__(158);
 
-
 function pubCrawlList(pubCrawls) {
     return pubCrawls.map(function (pubCrawl) {
-        return React.createElement(
-            _reactRouterDom.Link,
-            { key: pubCrawl.UserId + pubCrawl.PubCrawlName, to: '/pubCrawl?id=' + pubCrawl.PubCrawlName },
-            React.createElement(PubCrawl, { pubCrawl: pubCrawl })
-        );
+        return React.createElement(PubCrawl, { pubCrawl: pubCrawl });
     });
 }
 
@@ -53576,6 +53568,8 @@ module.exports = DashboardComponent;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+var _reactRouterDom = __webpack_require__(148);
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -53585,10 +53579,11 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var React = __webpack_require__(1);
 var PubComponent = __webpack_require__(541);
 
+
 function pubList(pubs) {
 
     return pubs.map(function (pub) {
-        return React.createElement(PubComponent, { key: pub.ItemID, pub: pub });
+        return React.createElement(PubComponent, { key: pub.Index, pub: pub });
     });
 }
 
@@ -53623,9 +53618,13 @@ var PubCrawlComponent = function (_React$Component) {
                         'div',
                         { className: 'pubCrawlName' },
                         React.createElement(
-                            'span',
-                            { className: 'ui large header' },
-                            this.props.pubCrawl.PubCrawlName
+                            _reactRouterDom.Link,
+                            { key: this.props.pubCrawl.UserID + this.props.pubCrawl.PubCrawlName, to: '/pubCrawl?id=' + this.props.pubCrawl.PubCrawlName },
+                            React.createElement(
+                                'span',
+                                { className: 'ui large header' },
+                                this.props.pubCrawl.PubCrawlName
+                            )
                         )
                     ),
                     React.createElement(
@@ -54724,6 +54723,10 @@ var PubCrawlBuilder = function (_React$Component) {
                     NumberOfPatrons: pub.NumberOfPatrons
                 };
             });
+
+            for (var i = 0; i < pubs.length; i++) {
+                pubs[i].Index = i;
+            }
 
             return {
                 UserID: document.getElementById('pubCrawlCurator').value,

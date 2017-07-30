@@ -9,7 +9,7 @@ module.exports = {
         }]
     },
     output: {
-        path: __dirname + "/dist",
+        path: __dirname + "/assets/",
         filename: "bundle.js",
         publicPath: "/assets/",
     }

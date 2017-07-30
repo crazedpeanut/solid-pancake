@@ -1,7 +1,9 @@
 const React = require('react');
 
-function getPubImg() {
-    return `/assets/img/PubIcon${Math.floor(Math.random() * 3  + 1)}.png`;
+function getPubImg(name) {
+    const val = (name.charCodeAt(0) % 3) + 1;
+
+    return `/assets/img/PubIcon${val}.png`;
 }
 
 class PubComponent extends React.Component {
@@ -15,7 +17,7 @@ class PubComponent extends React.Component {
     render() {
         return(
             <div className="item pub" onClick={this.clickHandler}>
-                <img className="ui image" src={getPubImg()}/>
+                <img className="ui image" src={getPubImg(this.props.pub.ItemName)}/>
                     <div className="content">
                         <div className="header">{this.props.pub.ItemName}</div>
                     </div>

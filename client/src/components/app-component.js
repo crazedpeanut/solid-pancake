@@ -8,7 +8,7 @@ class AppComponent extends React.Component {
 
     render() {
         return (
-            <div id="game">
+            <div id="solid-pancake">
                 <div className="ui menu">
                     <div className="header item">
                         <Link to="/dashboard"><img width="100%" src="/assets/img/Pubcrawlersmollogo.png"/></Link>
@@ -24,8 +24,7 @@ class AppComponent extends React.Component {
                     </a>
                 </div>
 
-                <Redirect from="/" to="/dashboard" />
-
+                <Redirect from="/" to="/dashboard"/>
                 <Route path="/dashboard" component={Dashboard} />
                 <Route path="/pubCrawl" component={PubCrawl} />
                 <Route path="/crawlBuilder" component={CrawlBuilder} />

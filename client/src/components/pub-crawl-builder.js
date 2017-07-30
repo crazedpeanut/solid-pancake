@@ -56,6 +56,10 @@ class PubCrawlBuilder extends React.Component {
             NumberOfPatrons: pub.NumberOfPatrons
         }));
 
+        for(let i = 0; i < pubs.length; i++) {
+            pubs[i].Index = i;
+        }
+
         return {
             UserID: document.getElementById('pubCrawlCurator').value,
             PubCrawlName: document.getElementById('pubCrawlName').value,

@@ -1,14 +1,11 @@
 const React = require('react');
 const PubCrawl = require('./pub-crawl-component');
 const pubCrawlService = require('../services/pub-crawl-service');
-import {Link} from 'react-router-dom';
 
 function pubCrawlList(pubCrawls) {
     return (
         pubCrawls.map(pubCrawl =>
-            <Link key={pubCrawl.UserId + pubCrawl.PubCrawlName} to={`/pubCrawl?id=${pubCrawl.PubCrawlName}`}>
-                <PubCrawl pubCrawl={pubCrawl}/>
-            </Link>
+            <PubCrawl key={`${pubCrawl.UserID}-${pubCrawl.PubCrawlName}`} pubCrawl={pubCrawl}/>
         )
     );
 }
@@ -41,11 +38,14 @@ class DashboardComponent extends React.Component {
             .then(pubCrawls => {
                 console.log('Got new pub crawls' + JSON.stringify(pubCrawls));
                 this.props.onRefreshPubCrawls(pubCrawls);
+                setTimeout(this.forceUpdate.bind(this), 200);
             })
             .catch(err => console.error(err));
     }
 
     render() {
+
+        console.log('render dashboard');
         return (
             <div className="ui grid">
                 <div className="ui eight wide column">

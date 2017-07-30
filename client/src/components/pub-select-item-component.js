@@ -1,8 +1,10 @@
 const React = require('react');
 import {Button, Icon} from 'semantic-ui-react';
 
-function getPubImg() {
-    return `/assets/img/PubIcon${Math.floor(Math.random() * 3) + 1}.png`;
+function getPubImg(name) {
+    const val = (name.charCodeAt(0) % 3) + 1;
+
+    return `/assets/img/PubIcon${val}.png`;
 }
 
 class PubSelectItemComponent extends React.Component {
@@ -18,7 +20,7 @@ class PubSelectItemComponent extends React.Component {
     render() {
         return(
             <div className="item pub">
-                <img className="ui image" src={getPubImg()}/>
+                <img className="ui image" src={getPubImg(this.props.pub.TradingName)}/>
                     <div className="content">
                         <div className="header">{this.props.pub.TradingName}</div>
                         <div className="pub-select-buttons">
