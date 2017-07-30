@@ -21,17 +21,17 @@ class PubCrawlPubComponent extends React.Component {
                 <br/><br/>
                 <div className="ui grid" id="pub1">
                     <div className="six wide column">
-                        <div className="row ui medium header">this.props.pub.ItemName}</div>
-                        <div className="row">123 Something Street</div>
+                        <div className="row ui medium header">{this.props.pub.ItemName}</div>
+                        <div className="row">{this.props.pub.StreetAddress}</div>
                         <div className="row">Phone: 03 9123 4567</div>
                     </div>
-                    <div className="six wide column">
+                    <div className="two wide column">
                         <div className="row ui medium header"><br/></div>
                         <div className="row">Rating: 4/5</div>
-                        <div className="row">Capacity: 100</div>
+                        <div className="row">Capacity: {this.props.pub.NumberOfPatrons}</div>
                     </div>
-                    <div className="four column">
-                        <img className="ui image" src={getPubImg(this.props.pub.ItemName)}/>
+                    <div className="eight wide column">
+                        <img className="ui image" src={getPubImg(this.props.pub.ItemName)} width="75px"/>
                     </div>
                 </div>
             </div>
