@@ -5,15 +5,15 @@ import {withRouter} from 'react-router';
 
 const mapPubCrawlDispatchToProps = dispatch => {
     return {
-        onRefreshPubCrawlDisplay: pubCrawl => {
-            dispatch(refreshPubCrawlDisplay(pubCrawl))
+        onRefreshPubCrawlDisplay: pubCrawlDisplay => {
+            dispatch(refreshPubCrawlDisplay(pubCrawlDisplay))
         }
     }
 };
 
 const mapPubCrawlStateToProps = (state, ownProps) => {
     return {
-        PubCrawlDisplay: state.PubCrawlDisplay.pubCrawl
+        pubCrawlDisplay: state.PubCrawlDisplay.pubCrawlDisplay
     }
 };
 

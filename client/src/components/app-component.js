@@ -2,7 +2,7 @@ import React from 'react';
 import {Route, Link, Redirect} from 'react-router-dom'
 import Dashboard from '../containers/dashboard-container';
 import CrawlBuilder from '../components/pub-crawl-builder';
-import PubCrawl from './pub-crawl-display';
+import PubCrawl from '../containers/pub-crawl-container';
 
 class AppComponent extends React.Component {
 

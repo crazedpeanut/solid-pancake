@@ -23,11 +23,11 @@ class PubCrawlDisplay extends React.Component {
             .catch(err => console.error(err));
     }
     render() {
-        console.log(this.props.pubCrawl);
-
+        console.log("somehow: "+this.props);
+        let crawl = this.props.pubCrawlDisplay;
         return (
             <div>
-
+                {crawl.PubCrawlName}
             </div>
         )
     }
