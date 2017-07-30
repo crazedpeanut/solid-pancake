@@ -34,3 +34,30 @@ body {
     margin-top: 7px;
     margin-bottom: 7px;
 }
+
+
+
+#map {
+    width: 500px;
+    height: 400px;
+}
+
+.reviews {
+    float: right;
+    width: calc(100% - 520px);
+    padding-right: 50px;
+    font-size: 0.8em;
+    height: 400px;
+    overflow: auto;
+}
+
+.review-list {
+    margin: 0;
+}
+
+.review-list li+li {
+    margin-top: 1em;
+    padding-top: 1em;
+    border-top: 1px solid black;
+}
+.review-list em{display:block;margin:0.3em 0;}

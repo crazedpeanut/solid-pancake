@@ -33,8 +33,13 @@ class PubCrawlPubComponent extends React.Component {
                     <div className="eight wide column">
                         <img className="ui image" src={getPubImg(this.props.pub.ItemName)} width="75px"/>
                     </div>
-                </div>
+                    <div className="reviews"><ul className="review-list"></ul></div>
+                    <div id="map"> </div>
+                    <hr/>
+                    <div><strong>Overall rating:</strong> <span id="rating"> </span></div>
+                    </div>
             </div>
+        
         );
     }
 }

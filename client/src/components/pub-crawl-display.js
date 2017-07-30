@@ -51,6 +51,7 @@ class PubCrawlDisplay extends React.Component {
                     </div>
                 </div>
             </div>
+
         )
     }
 }
