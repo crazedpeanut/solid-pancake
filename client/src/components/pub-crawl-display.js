@@ -5,7 +5,7 @@ const PubCrawlPubComponent = require('./pubcrawl-pub-component');
 
 
 function pubCrawlPubList(pubs) {
-    if(pubs != null)
+    if(pubs)
         return pubs.map(pub =>
             <PubCrawlPubComponent key={pub.Index} pub={pub}/>
         );
