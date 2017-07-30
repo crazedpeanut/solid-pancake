@@ -56,6 +56,7 @@ class PubSearch extends React.Component{
                 onResultSelect={this.onResultSelect}
                 onSearchChange={this.onSearchChange}
                 results={this.state.results}
+                placeholder="Pub Search"
                 value={this.state.value}
             />
         )
