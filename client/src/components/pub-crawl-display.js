@@ -18,10 +18,10 @@ class PubCrawlDisplay extends React.Component {
             .then(pubCrawl => {
                 console.log('Got the pub crawl' + JSON.stringify(pubCrawl));
                 this.props.onRefreshPubCrawlDisplay(pubCrawl);
-                setTimeout(this.forceUpdate.bind(this), 200);
             })
             .catch(err => console.error(err));
     }
+
     render() {
         console.log("somehow: "+this.props);
         let crawl = this.props.pubCrawlDisplay;

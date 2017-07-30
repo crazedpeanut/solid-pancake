@@ -25,7 +25,7 @@ export default function todoApp(state, action) {
     if(action.type === 'REFRESH_PUBCRAWL') {
         console.log('Got REFRESH_PUBCRAWL action ');
         const newState = Object.assign(state, {
-            pubCrawlDisplay: action.pubCrawlDisplay
+            pubCrawlDisplay: action.pubCrawl
         });
 
         console.log(`Old state: ${JSON.stringify(state)}`);
