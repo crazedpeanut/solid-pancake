@@ -5,10 +5,9 @@ import { Provider } from 'react-redux'
 import { createStore } from 'redux'
 import pubCrawler from './reducers';
 
-import AppComponent from './components/app-component';
+import AppComponent from './containers/app-component';
 
 const store = createStore(pubCrawler);
-
 
 ReactDOM.render(
     <Provider store={store}>

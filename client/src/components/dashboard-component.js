@@ -1,6 +1,5 @@
 const React = require('react');
 const PubCrawl = require('./pub-crawl-component');
-const pubCrawlService = require('../services/pub-crawl-service');
 
 function pubCrawlList(pubCrawls) {
     return (
@@ -32,17 +31,6 @@ class DashboardComponent extends React.Component {
 
     constructor(props) {
         super(props);
-    }
-
-    componentDidMount() {
-        console.log('Dashboard loaded');
-        pubCrawlService.getPubCrawls()
-            .then(pubCrawls => {
-                console.log('Got new pub crawls' + JSON.stringify(pubCrawls));
-                this.props.onRefreshPubCrawls(pubCrawls);
-                setTimeout(this.forceUpdate.bind(this), 200);
-            })
-            .catch(err => console.error(err));
     }
 
     render() {

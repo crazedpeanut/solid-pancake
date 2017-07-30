@@ -2,7 +2,6 @@ const React = require('react');
 const pubCrawlService = require('../services/pub-crawl-service');
 const queryString = require('query-string');
 
-
 function pubList(pubs) {
 
     return pubs.map(pub =>
