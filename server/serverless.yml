@@ -19,6 +19,12 @@ provider:
         - dynamodb:DeleteItem
       Resource: "arn:aws:dynamodb:ap-southeast-2:074584043282:*"
 
+    - Effect: Allow
+      Action:
+        - ses:SendEmail
+        - ses:SendRawEmail
+      Resource: "*"
+
 functions:
   pubs:
     handler: handler.pubs
@@ -34,4 +40,12 @@ functions:
     events:
       - http:
           path: pubcrawls
+          method: any
+
+  sendemail:
+    handler: handler.sendemail
+
+    events:
+      - http:
+          path: sendemail
           method: any

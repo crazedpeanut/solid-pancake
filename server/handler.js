@@ -6,6 +6,10 @@ const doc = require('dynamodb-doc');
 
 const dynamo = new doc.DynamoDB();
 
+const aws = require('aws-sdk');
+const ses = new aws.SES({
+    region: 'us-east-1'
+});
 
 module.exports.pubs = (event, context, callback) => {
     console.log('Received event:', JSON.stringify(event, null, 2));
@@ -97,6 +101,67 @@ module.exports.pubcrawls = (event, context, callback) => {
             break;
         case 'OPTIONS':
             done();
+            break;
+        default:
+            done(new Error(`Unsupported method "${event.httpMethod}"`));
+    }
+};
+
+module.exports.sendemail = (event, context, callback) => {
+    console.log('Received event:', JSON.stringify(event, null, 2));
+
+    const done = (err, res) => callback(null, {
+        statusCode: err ? '400' : '200',
+        body: err ? err.message : JSON.stringify(res),
+        headers: {
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin' : '*',
+            'Access-Control-Allow-Headers': 'Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With'
+        },
+    });
+
+    switch (event.httpMethod) {
+        case 'GET':
+
+            var eParams = {
+                Destination: {
+                    ToAddresses: ["shaun@theshaun.com"]
+                },
+                Message: {
+                    Body: {
+                        Text: {
+                            Data: "Hey! What is up?"
+                        }
+                    },
+                    Subject: {
+                        Data: "Email Subject!!!"
+                    }
+                },
+                Source: "no-reply@thepub.tech"
+            };
+
+            console.log('===SENDING EMAIL===');
+            var email = ses.sendEmail(eParams, function(err, data){
+                if(err) console.log(err);
+                else {
+                    console.log("===EMAIL SENT===");
+                    console.log(data);
+
+
+                    console.log("EMAIL CODE END");
+                    console.log('EMAIL: ', email);
+                    context.succeed(event);
+
+                }
+            });
+
+
+            break;
+
+
+        case 'POST':
+
+
             break;
         default:
             done(new Error(`Unsupported method "${event.httpMethod}"`));

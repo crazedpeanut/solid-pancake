@@ -3,6 +3,13 @@ const pubCrawlService = require('../services/pub-crawl-service');
 const queryString = require('query-string');
 
 
+function pubList(pubs) {
+
+    return pubs.map(pub =>
+        <PubCrawlPubComponent key={pub.Index} pub={pub}/>
+    );
+}
+
 class PubCrawlDisplay extends React.Component {
 
     constructor(props) {
@@ -23,11 +30,25 @@ class PubCrawlDisplay extends React.Component {
     }
 
     render() {
-        console.log("somehow: "+this.props);
         let crawl = this.props.pubCrawlDisplay;
+        console.log(crawl);
         return (
-            <div>
-                {crawl.PubCrawlName}
+            <div className="ui grid centered container viewPubCrawl">
+                <div className="ui eight wide column">
+
+                    <div className="seven wide column">
+                        <div className="ui huge header">{crawl.PubCrawlName}</div>
+                        <div>
+                            By {crawl.UserID}
+                            <i className="large star icon"> </i>
+                            <i className="large star icon"> </i>
+                            <i className="large star icon"> </i>
+                            <i className="large star half empty icon"> </i>
+                            <i className="large empty star icon"> </i>
+                        </div>
+                        {pubList(crawl.PubCrawlItem)}
+                    </div>
+                </div>
             </div>
         )
     }
