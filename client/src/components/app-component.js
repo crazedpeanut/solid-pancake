@@ -2,7 +2,7 @@ import React from 'react';
 import {Route, Link, Redirect} from 'react-router-dom'
 import Dashboard from '../containers/dashboard-container';
 import CrawlBuilder from '../components/pub-crawl-builder';
-//import PubCrawl from '../containers/pub-crawl-container';
+import PubCrawl from '../containers/pub-crawl-container';
 import PubCrawlSearch from '../containers/pub-crawl-search-container';
 const pubCrawlService = require('../services/pub-crawl-service');
 
@@ -35,7 +35,7 @@ class AppComponent extends React.Component {
 
                 <Redirect from="/" to="/dashboard"/>
                 <Route path="/dashboard" component={Dashboard} />
-              {/*  <Route path="/pubCrawl" component={PubCrawl} />*/}
+                <Route path="/pubCrawl" component={PubCrawl} />
                 <Route path="/crawlBuilder" component={CrawlBuilder} />
             </div>
         );
