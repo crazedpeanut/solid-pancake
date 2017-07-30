@@ -123,39 +123,68 @@ module.exports.sendemail = (event, context, callback) => {
     switch (event.httpMethod) {
         case 'GET':
 
-            var eParams = {
-                Destination: {
-                    ToAddresses: ["shaun@theshaun.com"]
-                },
-                Message: {
-                    Body: {
-                        Text: {
-                            Data: "Hey! What is up?"
-                        }
-                    },
-                    Subject: {
-                        Data: "Email Subject!!!"
-                    }
-                },
-                Source: "no-reply@thepub.tech"
-            };
+            let pubcrawl = null;
+            let emailAddress = null;
 
-            console.log('===SENDING EMAIL===');
-            var email = ses.sendEmail(eParams, function(err, data){
-                if(err) console.log(err);
-                else {
-                    console.log("===EMAIL SENT===");
-                    console.log(data);
-
-
-                    console.log("EMAIL CODE END");
-                    console.log('EMAIL: ', email);
-                    context.succeed(event);
-
+            if (event.queryStringParameters !== null && event.queryStringParameters !== undefined) {
+                if (event.queryStringParameters.pubcrawl !== undefined && event.queryStringParameters.pubcrawl !== null && event.queryStringParameters.pubcrawl !== "") {
+                    pubcrawl = event.queryStringParameters.pubcrawl;
                 }
-            });
+                if (event.queryStringParameters.email !== undefined && event.queryStringParameters.email !== null && event.queryStringParameters.email !== "") {
+                    emailAddress = event.queryStringParameters.email;
+                }
+            }
+
+            if(pubcrawl !== null && emailAddress !== null) {
+                dynamo.getItem({TableName: 'pubcrawls', Key: {'PubCrawlName': pubcrawl}}, function(err, res){
+                    console.log('===SENDING EMAIL===');
+
+                    let emailContents = "Hey Buddy, here are the details for the pub crawl called "+pubcrawl+", made by "+res.Item.UserID+"\r\n";
+
+                    emailContents = emailContents+"\r\n";
+                    emailContents = emailContents+"\r\n";
+
+                    res.Item.PubCrawlItem.forEach(function(pub){
+                        emailContents = emailContents+ pub.ItemName+"\r\n";
+                        emailContents = emailContents+ pub.StreetAddress+" @ "+pub.Area+"\r\n";
+                        emailContents = emailContents+ "https://maps.google.com/?q="+pub.Ycoordinate+","+pub.Xcoordinate+"\r\n";
+                        emailContents = emailContents+"\r\n";
+                    });
 
 
+                    let email = ses.sendEmail({
+                        Destination: {
+                            ToAddresses: [emailAddress]
+                        },
+                        Message: {
+                            Body: {
+                                Text: {
+                                    Data: emailContents
+                                }
+                            },
+                            Subject: {
+                                Data: "Your pub crawl details for: "+pubcrawl
+                            }
+                        },
+                        Source: "no-reply@thepub.tech"
+                    }, function (err, data) {
+                        if (err) console.log(err);
+                        else {
+                            console.log("===EMAIL SENT===");
+                            console.log(data);
+
+
+                            console.log("EMAIL CODE END");
+                            console.log('EMAIL: ', email);
+                            context.succeed(event);
+
+                        }
+                    });
+
+                });
+
+                done();
+            }
             break;
 
 

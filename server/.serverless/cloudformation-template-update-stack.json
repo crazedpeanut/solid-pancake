@@ -137,7 +137,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/mypubcrawl/dev/1501383435130-2017-07-30T02:57:15.130Z/mypubcrawl.zip"
+          "S3Key": "serverless/mypubcrawl/dev/1501393896805-2017-07-30T05:51:36.805Z/mypubcrawl.zip"
         },
         "FunctionName": "mypubcrawl-dev-pubs",
         "Handler": "handler.pubs",
@@ -156,14 +156,14 @@
         "IamRoleLambdaExecution"
       ]
     },
-    "PubsLambdaVersion3SmkVLjDb7G3F8kHqIaMhbUNzfInpgEv54BauOGsQmU": {
+    "PubsLambdaVersionmHAkXdYBDVIsot9gNjy2yVEk9kCIhcNAGKwzxLMIIA": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "PubsLambdaFunction"
         },
-        "CodeSha256": "3SmkVLjDb7G3F8kHqIaMhbUNzfInpgEv54BauOGsQmU="
+        "CodeSha256": "mHAkXdYB/DVIsot9gNjy2yVEk9kCIhcNAGKwzxLMIIA="
       }
     },
     "PubcrawlsLambdaFunction": {
@@ -173,7 +173,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/mypubcrawl/dev/1501383435130-2017-07-30T02:57:15.130Z/mypubcrawl.zip"
+          "S3Key": "serverless/mypubcrawl/dev/1501393896805-2017-07-30T05:51:36.805Z/mypubcrawl.zip"
         },
         "FunctionName": "mypubcrawl-dev-pubcrawls",
         "Handler": "handler.pubcrawls",
@@ -192,14 +192,14 @@
         "IamRoleLambdaExecution"
       ]
     },
-    "PubcrawlsLambdaVersion3SmkVLjDb7G3F8kHqIaMhbUNzfInpgEv54BauOGsQmU": {
+    "PubcrawlsLambdaVersionmHAkXdYBDVIsot9gNjy2yVEk9kCIhcNAGKwzxLMIIA": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "PubcrawlsLambdaFunction"
         },
-        "CodeSha256": "3SmkVLjDb7G3F8kHqIaMhbUNzfInpgEv54BauOGsQmU="
+        "CodeSha256": "mHAkXdYB/DVIsot9gNjy2yVEk9kCIhcNAGKwzxLMIIA="
       }
     },
     "SendemailLambdaFunction": {
@@ -209,7 +209,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/mypubcrawl/dev/1501383435130-2017-07-30T02:57:15.130Z/mypubcrawl.zip"
+          "S3Key": "serverless/mypubcrawl/dev/1501393896805-2017-07-30T05:51:36.805Z/mypubcrawl.zip"
         },
         "FunctionName": "mypubcrawl-dev-sendemail",
         "Handler": "handler.sendemail",
@@ -228,14 +228,14 @@
         "IamRoleLambdaExecution"
       ]
     },
-    "SendemailLambdaVersion3SmkVLjDb7G3F8kHqIaMhbUNzfInpgEv54BauOGsQmU": {
+    "SendemailLambdaVersionmHAkXdYBDVIsot9gNjy2yVEk9kCIhcNAGKwzxLMIIA": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "SendemailLambdaFunction"
         },
-        "CodeSha256": "3SmkVLjDb7G3F8kHqIaMhbUNzfInpgEv54BauOGsQmU="
+        "CodeSha256": "mHAkXdYB/DVIsot9gNjy2yVEk9kCIhcNAGKwzxLMIIA="
       }
     },
     "ApiGatewayRestApi": {
@@ -403,7 +403,7 @@
         "MethodResponses": []
       }
     },
-    "ApiGatewayDeployment1501383435158": {
+    "ApiGatewayDeployment1501393896823": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
@@ -526,19 +526,19 @@
     "PubsLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "PubsLambdaVersion3SmkVLjDb7G3F8kHqIaMhbUNzfInpgEv54BauOGsQmU"
+        "Ref": "PubsLambdaVersionmHAkXdYBDVIsot9gNjy2yVEk9kCIhcNAGKwzxLMIIA"
       }
     },
     "PubcrawlsLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "PubcrawlsLambdaVersion3SmkVLjDb7G3F8kHqIaMhbUNzfInpgEv54BauOGsQmU"
+        "Ref": "PubcrawlsLambdaVersionmHAkXdYBDVIsot9gNjy2yVEk9kCIhcNAGKwzxLMIIA"
       }
     },
     "SendemailLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "SendemailLambdaVersion3SmkVLjDb7G3F8kHqIaMhbUNzfInpgEv54BauOGsQmU"
+        "Ref": "SendemailLambdaVersionmHAkXdYBDVIsot9gNjy2yVEk9kCIhcNAGKwzxLMIIA"
       }
     },
     "ServiceEndpoint": {
