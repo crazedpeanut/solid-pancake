@@ -8,7 +8,7 @@ const dynamo = new doc.DynamoDB();
 
 
 module.exports.pubs = (event, context, callback) => {
-    //console.log('Received event:', JSON.stringify(event, null, 2));
+    console.log('Received event:', JSON.stringify(event, null, 2));
 
     const done = (err, res) => callback(null, {
         statusCode: err ? '400' : '200',
@@ -33,11 +33,11 @@ module.exports.pubs = (event, context, callback) => {
 };
 
 module.exports.pubcrawls = (event, context, callback) => {
-    //console.log('Received event:', JSON.stringify(event, null, 2));
+    console.log('Received event:', JSON.stringify(event, null, 2));
 
     const done = (err, res) => {
 
-        const res = {
+        const response = {
             statusCode: err ? '400' : '200',
             body: err ? err.message : JSON.stringify(res),
             headers: {
@@ -46,9 +46,9 @@ module.exports.pubcrawls = (event, context, callback) => {
             },
         };
 
-        console.log(res)
+        console.log(response)
 
-        callback(null,res);
+        callback(null,response);
     }
 
     switch (event.httpMethod) {
