@@ -1,5 +1,6 @@
 const initialState = {
     pubCrawls: [],
+    PubCrawlDisplay: []
 };
 
 export default function todoApp(state, action) {
@@ -13,6 +14,18 @@ export default function todoApp(state, action) {
         console.log('Got REFRESH_PUBCRAWLS action ');
         const newState = Object.assign(state, {
             pubCrawls: action.pubCrawls
+        });
+
+        console.log(`Old state: ${JSON.stringify(state)}`);
+        console.log(`newstate state: ${JSON.stringify(newState)}`);
+
+        return newState;
+    }
+
+    if(action.type === 'REFRESH_PUBCRAWL') {
+        console.log('Got REFRESH_PUBCRAWL action ');
+        const newState = Object.assign(state, {
+            PubCrawlDisplay: action.PubCrawlDisplay
         });
 
         console.log(`Old state: ${JSON.stringify(state)}`);
