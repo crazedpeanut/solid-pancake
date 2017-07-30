@@ -38,6 +38,11 @@ class PubCrawlPubComponent extends React.Component {
                     <hr/>
                     <div><strong>Overall rating:</strong> <span id="rating"> </span></div>
                     </div>
+
+                <div className="reviews"><ul className="review-list"></ul></div>
+                <div id="map"></div>
+                <hr/>
+                <div><strong>Overall rating:</strong> <span id="rating"></span></div>
             </div>
         
         );
