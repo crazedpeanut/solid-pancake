@@ -29,8 +29,22 @@ function submitPubCrawl(pubCrawl) {
         .catch(err => console.error);
 }
 
+
+function getPubCrawl(name=null) {
+
+    return axios.get(config.pubsUrl, {
+        params: {
+            name: name
+        }})
+        .then((res) => {
+            return res.data.Item;
+        })
+        .catch(err => console.error);
+}
+
 module.exports = {
     getPubCrawls,
+    getPubCrawl,
     getAllPubs,
     submitPubCrawl
 };

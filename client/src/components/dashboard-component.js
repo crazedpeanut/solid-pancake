@@ -13,6 +13,8 @@ function pubCrawlList(pubCrawls) {
 const quotes = [
     ['"I kept crawling and it kept working"', 'Uni Student'],
     ['"Oh god, it never ends. Please make it stop"', 'Uni Student'],
+    ['"I have never pubbed so hard in my life!"', 'Uni Student'],
+    ['"PUB DATA!!!!!!11one"', 'Uni Student'],
 ];
 
 function randomQuote() {

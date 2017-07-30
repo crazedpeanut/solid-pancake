@@ -1,4 +1,4 @@
 module.exports = {
-    pubCrawlsUrl: 'https://nqt3hj0h97.execute-api.ap-southeast-2.amazonaws.com/prod/pubcrawls',
-    pubsUrl: 'https://nqt3hj0h97.execute-api.ap-southeast-2.amazonaws.com/prod/pubs'
+    pubCrawlsUrl: 'https://rnwvwjm0q7.execute-api.ap-southeast-2.amazonaws.com/dev/pubcrawls',
+    pubsUrl: 'https://rnwvwjm0q7.execute-api.ap-southeast-2.amazonaws.com/dev/pubs'
 };

@@ -21,6 +21,7 @@ module.exports.pubs = (event, context, callback) => {
 
     switch (event.httpMethod) {
         case 'GET':
+
             dynamo.scan({
                 TableName : 'pubs',
                 Limit : 550
@@ -48,9 +49,23 @@ module.exports.pubcrawls = (event, context, callback) => {
             dynamo.deleteItem(JSON.parse(event.body), done);
             break;
         case 'GET':
+            let name = null;
 
+            if (event.queryStringParameters !== null && event.queryStringParameters !== undefined) {
+                if (event.queryStringParameters.name !== undefined && event.queryStringParameters.name !== null && event.queryStringParameters.name !== "") {
+                    console.log("Received name: " + event.queryStringParameters.name);
+                    name = event.queryStringParameters.name;
+                }
+            }
+            if(name !== null)
+            {
+                dynamo.getItem({TableName: 'pubcrawls', Key: {'PubCrawlName': name}}, done);
+            }
+            else
+            {
+                dynamo.scan({ TableName: 'pubcrawls' }, done);
+            }
 
-            dynamo.scan({ TableName: "pubcrawls" }, done);
             break;
         case 'POST':
             var post_data = JSON.parse(event.body);
@@ -58,7 +73,7 @@ module.exports.pubcrawls = (event, context, callback) => {
             var params = {
                 TableName: 'pubcrawls',
                 Item:  post_data
-            }
+            };
 
             dynamo.putItem(params, done);
             break;

@@ -117,7 +117,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/mypubcrawl/dev/1501308785629-2017-07-29T06:13:05.629Z/mypubcrawl.zip"
+          "S3Key": "serverless/mypubcrawl/dev/1501375156676-2017-07-30T00:39:16.676Z/mypubcrawl.zip"
         },
         "FunctionName": "mypubcrawl-dev-pubs",
         "Handler": "handler.pubs",
@@ -136,14 +136,14 @@
         "IamRoleLambdaExecution"
       ]
     },
-    "PubsLambdaVersionvgMo40fXYgzeUul3PfaLh44Z2FiJTImYVuFq6gcI87g": {
+    "PubsLambdaVersionlsxRTrbwBxYnkDk6GgpDBBjDAPyPVwG0K3SdftpVys": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "PubsLambdaFunction"
         },
-        "CodeSha256": "vgMo40fXYgzeUul3PfaLh44Z2FiJTImYVuFq6gcI87g="
+        "CodeSha256": "lsxR+TrbwBxYnkDk6GgpDBBjDAPyPVwG0K3SdftpVys="
       }
     },
     "PubcrawlsLambdaFunction": {
@@ -153,7 +153,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/mypubcrawl/dev/1501308785629-2017-07-29T06:13:05.629Z/mypubcrawl.zip"
+          "S3Key": "serverless/mypubcrawl/dev/1501375156676-2017-07-30T00:39:16.676Z/mypubcrawl.zip"
         },
         "FunctionName": "mypubcrawl-dev-pubcrawls",
         "Handler": "handler.pubcrawls",
@@ -172,14 +172,14 @@
         "IamRoleLambdaExecution"
       ]
     },
-    "PubcrawlsLambdaVersionvgMo40fXYgzeUul3PfaLh44Z2FiJTImYVuFq6gcI87g": {
+    "PubcrawlsLambdaVersionlsxRTrbwBxYnkDk6GgpDBBjDAPyPVwG0K3SdftpVys": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "PubcrawlsLambdaFunction"
         },
-        "CodeSha256": "vgMo40fXYgzeUul3PfaLh44Z2FiJTImYVuFq6gcI87g="
+        "CodeSha256": "lsxR+TrbwBxYnkDk6GgpDBBjDAPyPVwG0K3SdftpVys="
       }
     },
     "ApiGatewayRestApi": {
@@ -294,7 +294,7 @@
         "MethodResponses": []
       }
     },
-    "ApiGatewayDeployment1501308785641": {
+    "ApiGatewayDeployment1501375156690": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
@@ -383,13 +383,13 @@
     "PubsLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "PubsLambdaVersionvgMo40fXYgzeUul3PfaLh44Z2FiJTImYVuFq6gcI87g"
+        "Ref": "PubsLambdaVersionlsxRTrbwBxYnkDk6GgpDBBjDAPyPVwG0K3SdftpVys"
       }
     },
     "PubcrawlsLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "PubcrawlsLambdaVersionvgMo40fXYgzeUul3PfaLh44Z2FiJTImYVuFq6gcI87g"
+        "Ref": "PubcrawlsLambdaVersionlsxRTrbwBxYnkDk6GgpDBBjDAPyPVwG0K3SdftpVys"
       }
     },
     "ServiceEndpoint": {
