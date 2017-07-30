@@ -19,10 +19,10 @@ function initMap(pub) {
     };
 
     service = new google.maps.places.PlacesService(map);
-    service.nearbySearch(request, searchResult);
+    service.nearbySearch(request, searchResult.bind(null, getPubDivID(pub.PubID)));
 }
 
-function searchResult(results, status) {
+function searchResult(pubDivId, results, status) {
     if (status == google.maps.places.PlacesServiceStatus.OK) {
         // show first result on map and request for details
         const place = results[0];
@@ -38,8 +38,9 @@ function searchResult(results, status) {
 
         service.getDetails({placeId: place.place_id}, function(place, status) {
             if (status == google.maps.places.PlacesServiceStatus.OK) {
-                let rating = document.querySelector('#rating');
-                let reviewEl = document.querySelector('.review-list');
+                console.log(`Query select #${pubDivId} .rating`);
+                let rating = document.querySelector(`#${pubDivId} .rating`);
+                let reviewEl = document.querySelector(`#${pubDivId} .review-list`);
 
                 rating.innerHTML = place.rating;
 
@@ -98,8 +99,7 @@ class PubCrawlPubComponent extends React.Component {
                     </div>
                     <div className="ui row">
                         <div className="ui eight wide column">
-                            <div><strong>Overall rating:</strong> <span id="rating"></span></div>
-                            <div className="reviews"><ul className="review-list"></ul></div>
+                            <div><strong>Overall rating:</strong> <span className="rating"></span></div>
                             <div className="reviews"><ul className="review-list"></ul></div>
                         </div>
                         <div className="ui eight wide column">
