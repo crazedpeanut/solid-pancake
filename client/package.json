@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --inline --content-base . --history-api-fallback"
+    "start": "webpack-dev-server --inline --content-base . --history-api-fallback",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "author": "",
   "license": "ISC",
@@ -20,7 +22,7 @@
     "webpack": "^3.4.1"
   },
   "dependencies": {
-    "axios": "^0.16.2",
+    "axios": "^0.18.1",
     "babel-loader": "^7.1.1",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
@@ -34,7 +36,9 @@
     "redux": "^3.7.2",
     "semantic-ui": "^2.2.11",
     "semantic-ui-react": "^0.71.2",
-    "webpack-dev-server": "^2.6.1",
-    "query-string": "^5.0.0"
-  }
+    "webpack-dev-server": "^3.1.11",
+    "query-string": "^5.0.0",
+    "snyk": "^1.241.0"
+  },
+  "snyk": true
 }
