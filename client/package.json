@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --inline --content-base . --history-api-fallback"
+    "start": "webpack-dev-server --inline --content-base . --history-api-fallback",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "author": "",
   "license": "ISC",
@@ -35,6 +37,8 @@
     "semantic-ui": "^2.2.11",
     "semantic-ui-react": "^0.71.2",
     "webpack-dev-server": "^2.6.1",
-    "query-string": "^5.0.0"
-  }
+    "query-string": "^5.0.0",
+    "snyk": "^1.316.1"
+  },
+  "snyk": true
 }
